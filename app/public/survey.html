@@ -172,7 +172,9 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <img src="https://vignette.wikia.nocookie.net/thomasmadeupcharactersandepisodes/images/4/48/Percy.png/revision/latest?cb=20150725031106" class="img-fluid" alt="Responsive image" id="userMatchPic">
+                            <img src="" class="img-fluid" alt="">
+                            <div class="row" id="userMatchPic">
+                          </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -183,7 +185,7 @@
 
             <footer class="footer">
                     <div class="container">
-                      <p><a href="/api/friends">API Friends List</a> | <a href="">GitHub Repo</a>
+                      <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/cvanglee/FriendFinder">GitHub Repo</a>
                     </div>
                 </footer>
     </div>
@@ -214,11 +216,8 @@ $("#submit").on("click", function(event){
     console.log("newFriend:", newFriend);
     $.post("/api/friends", newFriend,
     function(data){
-        $(".modal-body").html(data.matchName);
-        // $("#userMatchPic").attr("src", data.matchPic);
-
-        // $('#matchModal').modal('open');
-        console.log("data:",data.matchPic);
+        $("#userMatchPic").html(data.matchName);
+        $("#userMatchPic").attr("src", data.matchPic);
     });
 });
 </script>
