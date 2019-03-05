@@ -171,11 +171,10 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
-                            <img src="" class="img-fluid" alt="">
-                            <div class="row" id="userMatchPic">
-                          </div>
+                        <div id="modal-body" class="m-2">
                         </div>
+                        <div id="userMatchPic" class="m-2">
+                            </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
@@ -217,11 +216,11 @@ $("#submit").on("click", function(event){
     $.post("/api/friends", newFriend,
     function(data){
         var picfile = $("<img>");
-        $("#userMatchPic").html(data.matchName);
+        $("#modal-body").html(data.matchName);
         picfile.addClass("img-fluid");
         picfile.attr("alt","");
         picfile.attr("src", data.matchPic);
-        $(".modal-body").html(picfile);
+        $("#userMatchPic").html(picfile);
     });
 });
 </script>
