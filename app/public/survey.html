@@ -216,8 +216,12 @@ $("#submit").on("click", function(event){
     console.log("newFriend:", newFriend);
     $.post("/api/friends", newFriend,
     function(data){
+        var picfile = $("<img>");
         $("#userMatchPic").html(data.matchName);
-        $("#userMatchPic").attr("src", data.matchPic);
+        picfile.addClass("img-fluid");
+        picfile.attr("alt","");
+        picfile.attr("src", data.matchPic);
+        $(".modal-body").html(picfile);
     });
 });
 </script>
